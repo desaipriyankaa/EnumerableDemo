@@ -7,7 +7,7 @@ namespace EnumerableDemo
 {
     class Even : IEnumerable<int>
     {
-        public IEnumerator GetEnumerator()
+        public IEnumerator<int> GetEnumerator()
         {
             int i = 0;
             yield return i;
@@ -18,9 +18,9 @@ namespace EnumerableDemo
             }
         }
 
-        IEnumerator<int> IEnumerable<int>.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
     }
 }
